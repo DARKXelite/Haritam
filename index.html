@@ -1,32 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Haritam</title>
-    <style>
-        body {
-            background-color: #ecfdf5;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            color: #065f46;
-            flex-direction: column;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        p {
-            font-size: 1.2rem;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haritam – The Silent Movement</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#e6f4ea, #d6fbe7);
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+      color: #034d34;
+    }
+    section {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      font-size: 2rem;
+      text-align: center;
+      transition: opacity 0.8s ease-out, transform 0.5s ease-out;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .cta {
+      background-color: #065f46;
+      color: #fff;
+      padding: 1rem 2rem;
+      border: none;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+    .cta:hover {
+      background-color: #0f766e;
+    }
+  </style>
 </head>
 <body>
-    <h1>🌿 Haritam is Coming Soon</h1>
-    <p>Bringing Sustainability & Awareness to Life.</p>
+  <section class="quote">What if Earth is watching?</section>
+  <section class="quote">Would you recycle if it was your mother's breath?</section>
+  <section class="quote">You were born for more than consumption.</section>
+  <section class="quote">Even a whisper can shake a mountain.</section>
+  <section class="quote">Haritam is not a site. It's a seed.</section>
+  <section><a class="cta" href="#">🌿 Join the Silent Movement</a></section>
+
+  <script>
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
