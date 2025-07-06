@@ -1,110 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Haritam – The Silent Movement</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(#e6f4ea, #d6fbe7);
-      overflow-x: hidden;
-      scroll-behavior: smooth;
-      color: #034d34;
-    }
-    .fog {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      background: url('https://i.ibb.co/QdkWk9W/fog.png') repeat;
-      background-size: cover;
-      animation: fogMove 120s linear infinite;
-      opacity: 0.1;
-      pointer-events: none;
-      z-index: 0;
-    }
-    @keyframes fogMove {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-    section {
-      position: relative;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
-      font-size: 2rem;
-      text-align: center;
-      transition: opacity 0.8s ease-out, transform 0.5s ease-out;
-      opacity: 0;
-      transform: translateY(50px);
-      z-index: 1;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .cta {
-      background-color: #065f46;
-      color: #fff;
-      padding: 1rem 2rem;
-      border: none;
-      font-size: 1.2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 8px rgba(6, 95, 70, 0.5);
-    }
-    .cta:hover {
-      background-color: #0f766e;
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(6, 95, 70, 0.7);
-    }
-    #sound-toggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 999;
-      background: #065f46;
-      color: #fff;
-      padding: 10px 15px;
-      border-radius: 5px;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="fog"></div>
 
-  <section class="quote">What if Earth is watching?</section>
-  <section class="quote">Would you recycle if it was your mother's breath?</section>
-  <section class="quote">You were born for more than consumption.</section>
-  <section class="quote">Even a whisper can shake a mountain.</section>
-  <section class="quote">Haritam is not a site. It's a seed.</section>
-  <section><a class="cta" href="#">🌿 Join the Silent Movement</a></section>
+import React from 'react';
+import Link from 'next/link';
+import { Metadata } from 'next';
 
-  <audio id="forest-sound" loop>
-    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Unheard_Music_Concepts/Night_Sky_Dreams/Unheard_Music_Concepts_-_01_-_Rainforest_Ambient_Soundscape.mp3" type="audio/mpeg">
-  </audio>
-  <button id="sound-toggle">🔇 Sound Off</button>
+export const metadata: Metadata = {
+  title: 'Haritam – Green Conscious Blog',
+  description: 'A silent digital space for recycling, sustainability and community wisdom.',
+};
 
-  <script>
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.5 });
-    sections.forEach(section => {
-      observer.observe(section);
-    });
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 text-green-900">
+      <header className="text-center p-10">
+        <h1 className="text-4xl font-bold mb-2">Haritam</h1>
+        <p className="text-lg text-green-700">A silent movement towards sustainability 🌱</p>
+      </header>
 
-    const sound = document.getElementById("fo
+      <section className="max-w-3xl mx-auto p-6">
+        <h2 className="text-2xl font-semibold mb-4">Recent Posts</h2>
+        <ul className="space-y-4">
+          <li className="border-b pb-2">
+            <Link href="/posts/recycling-basics" className="text-xl text-green-800 hover:underline">
+              ♻️ Recycling Basics: How to Start from Home
+            </Link>
+            <p className="text-sm text-green-600">A simple guide to begin your recycling journey.</p>
+          </li>
+          <li className="border-b pb-2">
+            <Link href="/posts/compost-at-home" className="text-xl text-green-800 hover:underline">
+              🪴 Home Composting 101
+            </Link>
+            <p className="text-sm text-green-600">Turn kitchen waste into garden gold.</p>
+          </li>
+        </ul>
+      </section>
+
+      <footer className="text-center text-sm text-green-600 mt-10 mb-4">
+        <p>&copy; 2025 Haritam | Built with purpose, not noise.</p>
+        <Link href="/about" className="text-green-800 underline ml-2">About</Link>
+      </footer>
+    </main>
+  );
+}
