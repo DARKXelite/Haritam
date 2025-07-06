@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haritam - India's Green Future</title>
+    <title>Haritam - India's Green Future | Environmental Solutions</title>
+    <meta name="description" content="Haritam works to solve India's environmental challenges including air pollution, water scarcity, and climate change. Join our movement for a greener India.">
+    <meta name="keywords" content="India environment, air pollution, water crisis, climate change, green solutions, sustainability, eco-friendly">
+    <meta name="author" content="Haritam">
+    <link rel="canonical" href="https://haritam.org">
     <style>
         * {
             margin: 0;
@@ -16,6 +20,37 @@
             line-height: 1.6;
             color: #2c3e50;
             background: #f8f9fa;
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #2e7d32;
         }
 
         /* Header */
@@ -31,6 +66,7 @@
             text-align: center;
             color: white;
             position: relative;
+            margin-top: 60px;
         }
 
         .hero-content {
@@ -69,6 +105,45 @@
             background: #e55722;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Common section styles */
+        .section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        /* About Section */
+        .about-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
 
         /* Problem sections */
@@ -157,6 +232,36 @@
             display: block;
         }
 
+        /* Services Section */
+        .services-section {
+            background: #f8f9fa;
+            padding: 4rem 2rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
         /* Impact section */
         .impact-section {
             background: #f1f8e9;
@@ -188,17 +293,77 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Contact Section */
+        .contact-section {
+            background: white;
+            padding: 4rem 2rem;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .contact-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
         /* Footer */
         footer {
             background: #1b5e20;
             color: white;
-            text-align: center;
-            padding: 2rem;
+            padding: 3rem 2rem 1rem;
         }
 
         .footer-content {
-            max-width: 600px;
+            max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #4caf50;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2e7d32;
+            margin-top: 2rem;
         }
 
         /* Animations */
@@ -224,34 +389,50 @@
                 font-size: 2.5rem;
             }
             
-            .problem-grid {
-                grid-template-columns: 1fr;
+            nav ul {
+                justify-content: center;
+                gap: 1rem;
             }
             
-            .solution-grid {
+            .problem-grid,
+            .solution-grid,
+            .services-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        /* Section headings */
-        .section-title {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: #2e7d32;
+        /* Content styling */
+        .content-block {
+            margin-bottom: 2rem;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            text-align: center;
-            color: #666;
-            margin-bottom: 2rem;
+        .content-block h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+
+        .content-block p {
+            line-height: 1.8;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#problems">Problems</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#privacy">Privacy</a></li>
+        </ul>
+    </nav>
+
     <!-- Hero Section -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-content">
             <h1>Haritam</h1>
             <p>Our children deserve clean air to breathe, pure water to drink, and a green India to call home</p>
@@ -259,135 +440,322 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">About Haritam</h2>
+            <p class="section-subtitle">Working towards a sustainable future for India</p>
+            
+            <div class="content-block">
+                <p>Haritam is a non-profit organization dedicated to addressing India's most pressing environmental challenges. Founded in 2020, we work with communities across the country to create sustainable solutions for air pollution, water scarcity, waste management, and climate change.</p>
+                
+                <p>Our mission is simple yet powerful: to create a greener, healthier India for future generations. We believe that environmental protection is not just about saving the planet – it's about protecting the health and wellbeing of every Indian family.</p>
+                
+                <p>Through community engagement, education, and direct action, we're building a movement that transforms how India approaches environmental challenges. Every tree we plant, every community we educate, and every policy we advocate for brings us closer to our vision of a sustainable India.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Our Vision</h3>
+                <p>To create an India where every child can breathe clean air, drink pure water, and live in harmony with nature. We envision cities with green spaces, rivers that run clean, and communities that thrive sustainably.</p>
+            </div>
+
+            <div class="content-block">
+                <h3>Our Mission</h3>
+                <p>To empower communities across India with the knowledge, tools, and support they need to solve environmental challenges at the grassroots level. We focus on practical, scalable solutions that make a real difference in people's lives.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Current Problems -->
     <section id="problems" class="problem-section">
-        <h2 class="section-title">The Crisis We Face Today</h2>
-        <p class="section-subtitle">Every day we wait, our children's future becomes more uncertain</p>
+        <h2 class="section-title">Environmental Crisis in India</h2>
+        <p class="section-subtitle">Understanding the challenges we face today</p>
         
         <div class="problem-grid">
             <div class="problem-card fade-in">
                 <span class="problem-icon">🏭</span>
                 <h3 class="problem-title">Air Pollution Crisis</h3>
-                <p>Delhi's air is 10 times more toxic than safe levels. Children develop lung problems before they learn to ride bicycles.</p>
+                <p>India's air quality crisis affects millions of lives daily. Delhi, Mumbai, and other major cities regularly exceed WHO air quality standards by 10-15 times. Children develop respiratory problems at alarming rates, and life expectancy is reduced by years due to poor air quality.</p>
                 <div class="problem-stats">
                     <div class="stat-number">1.67 million</div>
-                    <p>Indians die annually from air pollution</p>
+                    <p>Indians die annually from air pollution-related diseases</p>
                 </div>
+                <p>The economic cost of air pollution in India is estimated at $95 billion annually, affecting productivity, healthcare costs, and quality of life across the country.</p>
             </div>
 
             <div class="problem-card fade-in">
                 <span class="problem-icon">💧</span>
-                <h3 class="problem-title">Water Scarcity</h3>
-                <p>21 major cities including Delhi, Bangalore, Chennai face Day Zero - complete water depletion.</p>
+                <h3 class="problem-title">Water Scarcity Crisis</h3>
+                <p>India faces its worst water crisis in history. Twenty-one major cities, including Delhi, Bangalore, and Chennai, are approaching 'Day Zero' – the point where municipal water supplies run dry. Groundwater levels are depleting at alarming rates.</p>
                 <div class="problem-stats">
                     <div class="stat-number">600 million</div>
-                    <p>Indians face acute water shortage</p>
+                    <p>Indians face high to extreme water stress</p>
                 </div>
+                <p>Rural communities are disproportionately affected, with women and children walking miles daily to fetch water. Agriculture, which employs 50% of India's workforce, is severely impacted by water shortages.</p>
             </div>
 
             <div class="problem-card fade-in">
                 <span class="problem-icon">🗑️</span>
-                <h3 class="problem-title">Plastic Nightmare</h3>
-                <p>Our rivers, our streets, our food - everything is choking on plastic. Marine life dies, and it enters our food chain.</p>
+                <h3 class="problem-title">Plastic Pollution</h3>
+                <p>India generates massive amounts of plastic waste daily, much of which ends up in rivers, oceans, and landfills. Single-use plastics choke our waterways, harm marine life, and create microplastics that enter the food chain.</p>
                 <div class="problem-stats">
                     <div class="stat-number">26,000 tonnes</div>
-                    <p>Plastic waste generated daily in India</p>
+                    <p>Plastic waste generated daily across India</p>
                 </div>
+                <p>Poor waste management infrastructure means that only 60% of plastic waste is recycled, leaving thousands of tonnes to pollute our environment and affect public health.</p>
             </div>
 
             <div class="problem-card fade-in">
                 <span class="problem-icon">🌡️</span>
-                <h3 class="problem-title">Rising Temperatures</h3>
-                <p>Farmers lose crops, cities become unbearable, and climate refugees flee their homes every summer.</p>
+                <h3 class="problem-title">Climate Change Impact</h3>
+                <p>Rising temperatures, erratic monsoons, and extreme weather events are becoming the new normal. Farmers face crop failures, cities experience deadly heat waves, and coastal communities deal with rising sea levels and cyclones.</p>
                 <div class="problem-stats">
                     <div class="stat-number">50°C</div>
-                    <p>Record temperatures in North India</p>
+                    <p>Record temperatures recorded in North India</p>
                 </div>
+                <p>Climate change disproportionately affects India's most vulnerable populations, including farmers, urban poor, and coastal communities, threatening food security and economic stability.</p>
             </div>
         </div>
     </section>
 
     <!-- Solutions -->
-    <section class="solution-section">
-        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">But There is Hope</h2>
-        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Every small action creates ripples of change across India</p>
+    <section id="solutions" class="solution-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Our Solutions for India</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Practical, scalable solutions that make a real difference</p>
         
         <div class="solution-grid">
             <div class="solution-card fade-in">
                 <span class="solution-icon">🌱</span>
-                <h3>Urban Forests</h3>
-                <p>Creating green lungs in our cities through community plantation drives</p>
+                <h3>Urban Forest Initiative</h3>
+                <p>Creating green lungs in cities through community-driven plantation drives, rooftop gardens, and urban forest development programs.</p>
             </div>
 
             <div class="solution-card fade-in">
                 <span class="solution-icon">♻️</span>
-                <h3>Waste Warriors</h3>
-                <p>Teaching communities to reduce, reuse, and recycle effectively</p>
+                <h3>Waste Management Program</h3>
+                <p>Implementing comprehensive waste segregation, recycling, and composting programs in communities across India.</p>
             </div>
 
             <div class="solution-card fade-in">
                 <span class="solution-icon">💡</span>
-                <h3>Clean Energy</h3>
-                <p>Promoting solar power and sustainable energy solutions</p>
+                <h3>Renewable Energy Projects</h3>
+                <p>Promoting solar power, wind energy, and biogas solutions for rural and urban communities.</p>
             </div>
 
             <div class="solution-card fade-in">
                 <span class="solution-icon">🌾</span>
-                <h3>Organic Farming</h3>
-                <p>Supporting farmers transition to chemical-free agriculture</p>
+                <h3>Sustainable Agriculture</h3>
+                <p>Supporting farmers in transitioning to organic farming methods and water-efficient irrigation techniques.</p>
+            </div>
+
+            <div class="solution-card fade-in">
+                <span class="solution-icon">💧</span>
+                <h3>Water Conservation</h3>
+                <p>Implementing rainwater harvesting, groundwater recharge, and water recycling systems in communities.</p>
+            </div>
+
+            <div class="solution-card fade-in">
+                <span class="solution-icon">🎓</span>
+                <h3>Environmental Education</h3>
+                <p>Educating communities about environmental issues and empowering them with knowledge to create change.</p>
             </div>
         </div>
     </section>
 
-    <!-- Impact -->
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">How we support communities and organizations</p>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🏢</div>
+                <h3>Corporate Sustainability</h3>
+                <p>We help businesses develop and implement comprehensive sustainability strategies, reduce their environmental footprint, and achieve their ESG goals.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">🏫</div>
+                <h3>Educational Programs</h3>
+                <p>Interactive workshops, seminars, and training programs for schools, colleges, and communities to raise environmental awareness.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">🌍</div>
+                <h3>Community Outreach</h3>
+                <p>Grassroots programs that engage local communities in environmental conservation through hands-on activities and local leadership development.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">📊</div>
+                <h3>Environmental Assessment</h3>
+                <p>Comprehensive environmental impact assessments and sustainability audits for organizations and communities.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">🤝</div>
+                <h3>Partnership Development</h3>
+                <p>Building strategic partnerships between NGOs, government agencies, and private sector organizations for environmental initiatives.</p>
+            </div>
+
+            <div class="service-card fade-in">
+                <div class="service-icon">📋</div>
+                <h3>Policy Advocacy</h3>
+                <p>Working with policymakers to develop and implement effective environmental policies at local, state, and national levels.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
     <section class="impact-section">
-        <h2 class="section-title">Change is Happening</h2>
-        <p class="section-subtitle">Join thousands of Indians already making a difference</p>
+        <h2 class="section-title">Our Impact Across India</h2>
+        <p class="section-subtitle">Measurable change happening in communities nationwide</p>
         
         <div class="impact-grid">
             <div class="impact-card fade-in">
                 <div class="impact-number">50,000+</div>
-                <p>Trees planted across India</p>
+                <p>Trees planted across 15 states</p>
             </div>
 
             <div class="impact-card fade-in">
-                <div class="impact-number">100+</div>
-                <p>Communities transformed</p>
+                <div class="impact-number">200+</div>
+                <p>Communities actively participating</p>
             </div>
 
             <div class="impact-card fade-in">
-                <div class="impact-number">1 million</div>
-                <p>Lives touched by our work</p>
+                <div class="impact-number">1 million+</div>
+                <p>Lives positively impacted</p>
             </div>
 
             <div class="impact-card fade-in">
-                <div class="impact-number">25 cities</div>
-                <p>Across India taking action</p>
+                <div class="impact-number">50 cities</div>
+                <p>Across India implementing our programs</p>
             </div>
         </div>
         
         <div style="margin-top: 3rem;">
-            <a href="#" class="cta-button">Join the Movement</a>
+            <a href="#contact" class="cta-button">Join Our Movement</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Ready to make a difference? Connect with us today</p>
+            
+            <div class="contact-info">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p>info@haritam.org</p>
+                    <p>partnerships@haritam.org</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <h3>Call Us</h3>
+                    <p>+91 9876543210</p>
+                    <p>+91 9876543211</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🏢</div>
+                    <h3>Visit Us</h3>
+                    <p>123 Green Avenue</p>
+                    <p>New Delhi, India - 110001</p>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Follow Us</h3>
+                    <p>@HaritamIndia</p>
+                    <p>facebook.com/haritam</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <h3>Haritam</h3>
-            <p>For our children, for our future, for our India</p>
-            <p style="margin-top: 1rem; opacity: 0.8;">© 2025 Haritam. Making India green again.</p>
+            <div class="footer-section">
+                <h3>About Haritam</h3>
+                <p>Working towards a sustainable future for India through community engagement, education, and direct environmental action.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#problems">Environmental Issues</a></li>
+                    <li><a href="#solutions">Our Solutions</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Programs</h3>
+                <ul>
+                    <li><a href="#solutions">Urban Forest Initiative</a></li>
+                    <li><a href="#solutions">Waste Management</a></li>
+                    <li><a href="#solutions">Water Conservation</a></li>
+                    <li><a href="#solutions">Renewable Energy</a></li>
+                    <li><a href="#solutions">Sustainable Agriculture</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#terms">Terms of Service</a></li>
+                    <li><a href="#disclaimer">Disclaimer</a></li>
+                    <li><a href="#sitemap">Sitemap</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Haritam. All rights reserved. | Making India green again, one community at a time.</p>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal (Hidden by default) -->
+    <div id="privacy" style="display: none;">
+        <div style="background: white; padding: 2rem; max-width: 800px; margin: 2rem auto; border-radius: 15px;">
+            <h2>Privacy Policy</h2>
+            <p><strong>Last updated: January 2025</strong></p>
+            
+            <h3>Information We Collect</h3>
+            <p>We collect information you provide directly to us, such as when you subscribe to our newsletter, participate in our programs, or contact us. This may include your name, email address, phone number, and other contact information.</p>
+            
+            <h3>How We Use Your Information</h3>
+            <p>We use the information we collect to provide, maintain, and improve our services, communicate with you about our programs, and send you updates about environmental initiatives.</p>
+            
+            <h3>Information Sharing</h3>
+            <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this privacy policy.</p>
+            
+            <h3>Data Security</h3>
+            <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+            
+            <h3>Contact Us</h3>
+            <p>If you have any questions about this Privacy Policy, please contact us at privacy@haritam.org</p>
+        </div>
+    </div>
 
     <script>
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
 
