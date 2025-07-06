@@ -1,42 +1,413 @@
-import React from 'react';
-import Link from 'next/link';
-import { Metadata } from 'next';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haritam - India's Green Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-export const metadata: Metadata = {
-  title: 'Haritam – Green Conscious Blog',
-  description: 'A silent digital space for recycling, sustainability and community wisdom.',
-};
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #f8f9fa;
+        }
 
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-green-50 to-green-100 text-green-900">
-      <header className="text-center p-10">
-        <h1 className="text-4xl font-bold mb-2">Haritam</h1>
-        <p className="text-lg text-green-700">A silent movement towards sustainability 🌱</p>
-      </header>
+        /* Header */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9), rgba(102, 187, 106, 0.8)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><rect fill="%23388e3c" width="1000" height="600"/><path fill="%23ff6b35" d="M0,400 Q250,350 500,400 T1000,400 V600 H0 Z"/><circle fill="%23ffc107" cx="150" cy="100" r="60"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
 
-      <section className="max-w-3xl mx-auto p-6">
-        <h2 className="text-2xl font-semibold mb-4">Recent Posts</h2>
-        <ul className="space-y-4">
-          <li className="border-b pb-2">
-            <Link href="/posts/recycling-basics" className="text-xl text-green-800 hover:underline">
-              ♻️ Recycling Basics: How to Start from Home
-            </Link>
-            <p className="text-sm text-green-600">A simple guide to begin your recycling journey.</p>
-          </li>
-          <li className="border-b pb-2">
-            <Link href="/posts/compost-at-home" className="text-xl text-green-800 hover:underline">
-              🪴 Home Composting 101
-            </Link>
-            <p className="text-sm text-green-600">Turn kitchen waste into garden gold.</p>
-          </li>
-        </ul>
-      </section>
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1.5s ease-out;
+        }
 
-      <footer className="text-center text-sm text-green-600 mt-10 mb-4">
-        <p>&copy; 2025 Haritam | Built with purpose, not noise.</p>
-        <Link href="/about" className="text-green-800 underline ml-2">About</Link>
-      </footer>
-    </main>
-  );
-}
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: #ff6b35;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: #e55722;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Problem sections */
+        .problem-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .problem-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            border-left: 5px solid #ff6b35;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .problem-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .problem-title {
+            font-size: 1.5rem;
+            color: #2e7d32;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .problem-stats {
+            background: #ffebee;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 4px solid #f44336;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #d32f2f;
+        }
+
+        /* Solution section */
+        .solution-section {
+            background: linear-gradient(135deg, #2e7d32, #388e3c);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .solution-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .solution-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Impact section */
+        .impact-section {
+            background: #f1f8e9;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .impact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .problem-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .solution-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Section headings */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2e7d32;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Haritam</h1>
+            <p>Our children deserve clean air to breathe, pure water to drink, and a green India to call home</p>
+            <a href="#problems" class="cta-button">See the Reality</a>
+        </div>
+    </section>
+
+    <!-- Current Problems -->
+    <section id="problems" class="problem-section">
+        <h2 class="section-title">The Crisis We Face Today</h2>
+        <p class="section-subtitle">Every day we wait, our children's future becomes more uncertain</p>
+        
+        <div class="problem-grid">
+            <div class="problem-card fade-in">
+                <span class="problem-icon">🏭</span>
+                <h3 class="problem-title">Air Pollution Crisis</h3>
+                <p>Delhi's air is 10 times more toxic than safe levels. Children develop lung problems before they learn to ride bicycles.</p>
+                <div class="problem-stats">
+                    <div class="stat-number">1.67 million</div>
+                    <p>Indians die annually from air pollution</p>
+                </div>
+            </div>
+
+            <div class="problem-card fade-in">
+                <span class="problem-icon">💧</span>
+                <h3 class="problem-title">Water Scarcity</h3>
+                <p>21 major cities including Delhi, Bangalore, Chennai face Day Zero - complete water depletion.</p>
+                <div class="problem-stats">
+                    <div class="stat-number">600 million</div>
+                    <p>Indians face acute water shortage</p>
+                </div>
+            </div>
+
+            <div class="problem-card fade-in">
+                <span class="problem-icon">🗑️</span>
+                <h3 class="problem-title">Plastic Nightmare</h3>
+                <p>Our rivers, our streets, our food - everything is choking on plastic. Marine life dies, and it enters our food chain.</p>
+                <div class="problem-stats">
+                    <div class="stat-number">26,000 tonnes</div>
+                    <p>Plastic waste generated daily in India</p>
+                </div>
+            </div>
+
+            <div class="problem-card fade-in">
+                <span class="problem-icon">🌡️</span>
+                <h3 class="problem-title">Rising Temperatures</h3>
+                <p>Farmers lose crops, cities become unbearable, and climate refugees flee their homes every summer.</p>
+                <div class="problem-stats">
+                    <div class="stat-number">50°C</div>
+                    <p>Record temperatures in North India</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions -->
+    <section class="solution-section">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">But There is Hope</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 2rem;">Every small action creates ripples of change across India</p>
+        
+        <div class="solution-grid">
+            <div class="solution-card fade-in">
+                <span class="solution-icon">🌱</span>
+                <h3>Urban Forests</h3>
+                <p>Creating green lungs in our cities through community plantation drives</p>
+            </div>
+
+            <div class="solution-card fade-in">
+                <span class="solution-icon">♻️</span>
+                <h3>Waste Warriors</h3>
+                <p>Teaching communities to reduce, reuse, and recycle effectively</p>
+            </div>
+
+            <div class="solution-card fade-in">
+                <span class="solution-icon">💡</span>
+                <h3>Clean Energy</h3>
+                <p>Promoting solar power and sustainable energy solutions</p>
+            </div>
+
+            <div class="solution-card fade-in">
+                <span class="solution-icon">🌾</span>
+                <h3>Organic Farming</h3>
+                <p>Supporting farmers transition to chemical-free agriculture</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact -->
+    <section class="impact-section">
+        <h2 class="section-title">Change is Happening</h2>
+        <p class="section-subtitle">Join thousands of Indians already making a difference</p>
+        
+        <div class="impact-grid">
+            <div class="impact-card fade-in">
+                <div class="impact-number">50,000+</div>
+                <p>Trees planted across India</p>
+            </div>
+
+            <div class="impact-card fade-in">
+                <div class="impact-number">100+</div>
+                <p>Communities transformed</p>
+            </div>
+
+            <div class="impact-card fade-in">
+                <div class="impact-number">1 million</div>
+                <p>Lives touched by our work</p>
+            </div>
+
+            <div class="impact-card fade-in">
+                <div class="impact-number">25 cities</div>
+                <p>Across India taking action</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+            <a href="#" class="cta-button">Join the Movement</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Haritam</h3>
+            <p>For our children, for our future, for our India</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">© 2025 Haritam. Making India green again.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
